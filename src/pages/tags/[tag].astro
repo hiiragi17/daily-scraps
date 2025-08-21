@@ -1,0 +1,53 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const uniqueTags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+  
+  return uniqueTags.map(tag => ({
+    params: { tag },
+    props: { 
+      posts: posts
+        .filter(post => post.data.tags?.includes(tag))
+        .sort((a, b) => {
+          const dateA = new Date(a.data.pubDate);
+          const dateB = new Date(b.data.pubDate);
+          return dateB.getTime() - dateA.getTime();
+        })
+    }
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+// 日付フォーマット用の関数
+function formatDate(date: Date | string) {
+  try {
+    const d = new Date(date);
+    if (isNaN(d.getTime())) {
+      return '日付なし';
+    }
+    return d.toLocaleDateString('ja-JP', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch {
+    return '日付なし';
+  }
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Tag: ${tag}`} description={`All posts tagged with ${tag}`} />
+  </head>
+  <body>
+    <Header />

@@ -1,0 +1,78 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title="Tags" description="All tags" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>🏷️ タグ一覧</h1>
+      {tags.length === 0 ? (
+        <p>タグがまだありません。記事にタグを追加してください。</p>
+      ) : (
+        <div class="tag-list">
+          {tags.map(tag => (
+            <a href={`/daily-scraps/tags/${tag}/`} class="tag">
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+      <div class="back-link">
+        <a href="/daily-scraps/">← トップに戻る</a>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    padding: 2rem;
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f0f0f0;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s;
+  }
+
+  .tag:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .back-link {
+    margin-top: 3rem;
+  }
+
+  .back-link a {
+    color: r
