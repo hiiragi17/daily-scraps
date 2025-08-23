@@ -1,49 +1,202 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+const allTags = posts.flatMap((post: { data: { tags: any; }; }) => post.data.tags || []);
+const tagCounts = allTags.reduce((acc: { [x: string]: any; }, tag: string | number) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+
+const popularTags = Object.entries(tagCounts)
+  .sort(([, a], [, b]) => (b as number) - (a as number))
+  .slice(0, 10);
+
+const recentPosts = posts.slice(0, 5);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Daily Scraps">
+  <main>
+    <div class="hero">
+      <h1>Daily Scraps</h1>
+      <p>エンジニアの日々の学習記録・技術メモ</p>
+    </div>
+
+    <section class="recent-posts">
+      <h2>最新の記事</h2>
+      <ul class="post-list">
+        {recentPosts.map((post: { id: string; data: { title: unknown; pubDate: string | number | Date; description: unknown; tags: string[]; }; }) => {
+          const slug = post.id.replace(/\.(md|mdx)$/, '');
+          return (
+            <li class="post-item">
+              <article>
+                <h3>
+                  <a href={`/daily-scraps/blog/${slug}/`}>{post.data.title}</a>
+                </h3>
+                <time>{new Date(post.data.pubDate).toLocaleDateString('ja-JP')}</time>
+                <p>{post.data.description}</p>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="tags">
+                    {post.data.tags.map((tag: string) => (
+                      <a href={`/daily-scraps/tags/${tag}/`} class="tag">#{tag}</a>
+                    ))}
+                  </div>
+                )}
+              </article>
+            </li>
+          );
+        })}
+      </ul>
+      <a href="/daily-scraps/blog/" class="view-all">すべての記事を見る →</a>
+    </section>
+
+    <section class="popular-tags">
+      <h2>人気のタグ</h2>
+      <div class="tag-cloud">
+        {popularTags.map(([tag, count]) => (
+          <a href={`/daily-scraps/tags/${tag}/`} class="tag-item">
+            <span class="tag-name">#{tag}</span>
+            <span class="tag-count">{count}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="stats">
+      <h2>統計</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">{posts.length}</div>
+          <div class="stat-label">総記事数</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{Object.keys(tagCounts).length}</div>
+          <div class="stat-label">タグ数</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">
+            {posts.length > 0 
+              ? Math.floor((Date.now() - new Date(posts[0].data.pubDate).getTime()) / (1000 * 60 * 60 * 24))
+              : 0}
+          </div>
+          <div class="stat-label">継続日数</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  section {
+    margin: 3rem 0;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .post-item {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  .post-item h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.25rem 0.5rem;
+    background: #e5e5e5;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .view-all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tag-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+
+  .tag-count {
+    background-color: #667eea;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #667eea;
+  }
+</style>

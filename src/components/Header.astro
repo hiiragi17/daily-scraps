@@ -1,12 +1,15 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+
+const base = '/daily-scraps';
 ---
 
 <header>
 	<nav>
 		<h2><a href="/daily-scraps/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
+			<HeaderLink href={`${base}/`}>Home</HeaderLink>
 			<HeaderLink href="/daily-scraps/blog">Blog</HeaderLink>
 			<HeaderLink href="/daily-scraps/tags">Tags</HeaderLink>
 		</div>
