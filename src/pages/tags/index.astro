@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
-const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+const tags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post.data.tags || []))];
 ---
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
   <body>
     <Header />
     <main>
-      <h1>🏷️ タグ一覧</h1>
+      <h1>タグ一覧</h1>
       {tags.length === 0 ? (
         <p>タグがまだありません。記事にタグを追加してください。</p>
       ) : (

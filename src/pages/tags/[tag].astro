@@ -7,27 +7,32 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  const uniqueTags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+  console.log('Found posts:', posts.length);
   
-  return uniqueTags.map(tag => ({
+  const uniqueTags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post.data.tags || []))];
+  console.log('Found tags:', uniqueTags);
+  
+  const paths = uniqueTags.map(tag => ({
     params: { tag },
     props: { 
       posts: posts
-        .filter(post => post.data.tags?.includes(tag))
-        .sort((a, b) => {
+        .filter((post: { data: { tags: unknown[]; }; }) => post.data.tags?.includes(tag))
+        .sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
           const dateA = new Date(a.data.pubDate);
           const dateB = new Date(b.data.pubDate);
           return dateB.getTime() - dateA.getTime();
         })
     }
   }));
+  
+  console.log('Generated paths:', paths.map(p => p.params));
+  return paths;
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
-// 日付フォーマット用の関数
-function formatDate(date: Date | string) {
+function formatDate(date: string | number | Date) {
   try {
     const d = new Date(date);
     if (isNaN(d.getTime())) {
@@ -45,9 +50,143 @@ function formatDate(date: Date | string) {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
-    <BaseHead title={`Tag: ${tag}`} description={`All posts tagged with ${tag}`} />
+    <BaseHead title={`タグ: ${tag}`} description={`${tag}タグの記事一覧`} />
   </head>
   <body>
     <Header />
+    <main>
+      <h1>タグ: #{tag}</h1>
+      <p>{posts.length}件の記事があります</p>
+      
+      {posts.length === 0 ? (
+        <p>このタグの記事はまだありません。</p>
+      ) : (
+        <div class="posts-list">
+          {posts.map((post: { slug: any; data: { title: unknown; pubDate: any; description: unknown; tags: any[]; }; }) => (
+            <article class="post-item">
+              <h2>
+                <a href={`/daily-scraps/blog/${post.slug}/`}>
+                  {post.data.title}
+                </a>
+              </h2>
+              <time class="post-date">
+                {formatDate(post.data.pubDate)}
+              </time>
+              {post.data.description && (
+                <p class="post-description">{post.data.description}</p>
+              )}
+              {post.data.tags && (
+                <div class="post-tags">
+                  {post.data.tags.map((postTag: unknown) => (
+                    <a href={`/daily-scraps/tags/${postTag}/`} class="tag">
+                      #{postTag}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      )}
+      
+      <div class="navigation">
+        <a href="/daily-scraps/tags/">← タグ一覧に戻る</a>
+        <a href="/daily-scraps/">← トップに戻る</a>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    padding: 2rem;
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+    color: rgb(var(--accent));
+  }
+
+  .posts-list {
+    margin: 2rem 0;
+  }
+
+  .post-item {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-item h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-item h2 a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-item h2 a:hover {
+    color: rgb(var(--accent));
+  }
+
+  .post-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .post-description {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #f0f0f0;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+
+  .tag:hover {
+    background: rgb(var(--accent));
+    color: white;
+  }
+
+  .navigation {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navigation a {
+    color: rgb(var(--accent));
+    text-decoration: none;
+  }
+
+  .navigation a:hover {
+    text-decoration: underline;
+  }
+</style>
