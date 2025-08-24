@@ -1,13 +1,6 @@
 # Daily Scraps
 エンジニアの日々の学習記録・技術メモ
-
-## Template
----
-title: ''
-description: ''
-pubDate: 2025-08-22
-tags: ['']
----
+https://hiiragi17.github.io/daily-scraps/
 
 ## MarkDown
 
@@ -39,11 +32,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ```markdown
 ![Alt text](./full/or/relative/path/of/image)
-```
-
-### Output
-
-![blog placeholder](../../assets/blog-placeholder-about.jpg)
+``
 
 ## Blockquotes
 
