@@ -6,7 +6,7 @@ import { marked } from 'marked';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   
-  return posts.map((post) => {
+  return posts.map((post: { id: string; body: any; data: any; }) => {
     const slug = post.id.replace(/\.(md|mdx)$/, '');
     
     // Markdownを手動でHTMLに変換
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 const { postData, htmlContent } = Astro.props;
 ---
 
-<BlogPost {...postData}>
+<BlogPost {...(postData ?? {})}>
   <div class="prose" set:html={htmlContent} />
 </BlogPost>
 
