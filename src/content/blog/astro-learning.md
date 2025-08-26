@@ -1,6 +1,6 @@
 ---
-title: '今日学んだこと：[Astroに関して]'
-description: '[Astroに関して]'
+title: '今日学んだこと：Astroに関して'
+description: 'Astroに関して'
 pubDate: 2025-08-23
 tags: ['Astro']
 draft: false

@@ -1,6 +1,6 @@
 ---
-title: '今日学んだこと：[Zodに関して]'
-description: '[記事の概要・要約を入力]'
+title: '今日学んだこと：Zodに関して'
+description: 'Zodに関して'
 pubDate: 2025-08-24
 tags: ['Zod', 'TypeScript']
 draft: false
@@ -8,7 +8,7 @@ draft: false
 
 ## 概要
 
-今日は[Zod]について学んだ。
+今日はZodについて学んだ。
 
 ### ポイント1
 
