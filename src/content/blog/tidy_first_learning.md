@@ -1,6 +1,6 @@
 ---
 title: '今日学んだこと：Tidy First?について'
-description: '記事の概要・要約を入力'
+description: 'Tidy First?について'
 pubDate: 2025-09-20
 tags: ['Tidy First?']
 draft: false
