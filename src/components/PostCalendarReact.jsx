@@ -251,17 +251,17 @@ const PostCalendarReact = ({ posts = [] }) => {
 
         /* 投稿がある日 */
         .react-calendar__tile.has-post {
-          border-color: rgb(7, 56, 40) !important;
-          background: #f0fdf4 !important;
+          border-color: #047857 !important;
+          background: #d1fae5 !important;
           font-weight: 600;
-          color: #166534 !important;  /* より濃い緑 */
+          color: #15803d !important;
           cursor: pointer;
         }
 
         .react-calendar__tile.has-post:hover {
-          background: #dcfce7 !important;
-          border-color: #059669 !important;
-          color: #166534 !important;  /* ホバー時も濃い緑 */
+          background: #a7f3d0 !important;
+          border-color: #047857 !important;
+          color: #15803d !important;
         }
 
         /* 今日かつ投稿がある日 */
@@ -299,7 +299,7 @@ const PostCalendarReact = ({ posts = [] }) => {
         }
 
         .post-count {
-          background: #10b981;
+          background: #059669;
           color: white;
           font-size: 0.625rem;
           font-weight: 700;
