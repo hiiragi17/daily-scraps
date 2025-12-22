@@ -95,8 +95,6 @@ saveFormDataDisabled: true  // ← フォームデータ保存を禁止
 })}
 ```
 
-**これは正しい設定です！** ✅
-
 ## 補足：プラットフォーム別の挙動
 
 実は `saveFormDataDisabled` は **Android 専用** の設定：
