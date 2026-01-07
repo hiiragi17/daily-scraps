@@ -20,37 +20,42 @@ const recentPosts = posts.slice(0, 5);
 // 継続日数を計算する関数
 function calculateStreak(posts: any[]): number {
  if (posts.length === 0) return 0;
- 
- const sortedPosts = [...posts].sort((a, b) => 
+
+ // 日付文字列をローカル日付に変換する関数
+ const parseLocalDate = (dateStr: string): Date => {
+   const date = new Date(dateStr);
+   // タイムゾーンの影響を受けないように、年月日を直接取得して新しいDateを作成
+   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+ };
+
+ const sortedPosts = [...posts].sort((a, b) =>
    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
  );
- 
+
  let streak = 0;
  const today = new Date();
  today.setHours(0, 0, 0, 0);
- 
- const latestPost = new Date(sortedPosts[0].data.pubDate);
- latestPost.setHours(0, 0, 0, 0);
- 
+
+ const latestPost = parseLocalDate(sortedPosts[0].data.pubDate);
+
  const daysSinceLatest = Math.floor((today.getTime() - latestPost.getTime()) / (1000 * 60 * 60 * 24));
  if (daysSinceLatest > 1) return 0;
- 
+
  let currentDate = new Date(latestPost);
  streak = 1;
- 
+
  for (let i = 1; i < sortedPosts.length; i++) {
-   const postDate = new Date(sortedPosts[i].data.pubDate);
-   postDate.setHours(0, 0, 0, 0);
-   
+   const postDate = parseLocalDate(sortedPosts[i].data.pubDate);
+
    const prevDate = new Date(currentDate);
    prevDate.setDate(prevDate.getDate() - 1);
-   
+
    if (postDate.getTime() !== prevDate.getTime()) break;
-   
+
    streak++;
    currentDate = postDate;
  }
- 
+
  return streak;
 }
 
