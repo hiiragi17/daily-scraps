@@ -5,16 +5,17 @@ import { marked } from 'marked';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  
+
   return posts.map((post: { id: string; body: any; data: any; }) => {
-    const slug = post.id.replace(/\.(md|mdx)$/, '');
-    
+    // slugフィールドがあればそれを使用、なければファイルパスから生成
+    const slug = post.data.slug || post.id.replace(/\.(md|mdx)$/, '');
+
     // Markdownを手動でHTMLに変換
     const htmlContent = marked.parse(post.body || '');
-    
+
     return {
       params: { slug: slug },
-      props: { 
+      props: {
         postData: post.data,
         htmlContent: htmlContent
       }
