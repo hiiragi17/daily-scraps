@@ -1,9 +1,9 @@
 
 ---
-title: '今日学んだこと：経営戦略マネジメントに関して'
-description: '基本情報の問題で出てくる経営戦略マネジメント'
+title: '今日学んだこと：ordとchrに関して'
+description: 'ordとchrメソッドに関して'
 pubDate: 2026-1-7
-tags: ['ord', 'char']
+tags: ['ord', 'chr']
 draft: false
 slug: 'ord_chr_learning'
 ---
