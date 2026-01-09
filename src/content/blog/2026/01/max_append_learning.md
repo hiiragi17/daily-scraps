@@ -1,6 +1,6 @@
 ---
-title: '今日学んだこと：divとspanに関して'
-description: 'div、spanタグに関して'
+title: '今日学んだこと：maxとappendに関して'
+description: 'max、appendメソッドに関して'
 pubDate: 2026-1-9
 tags: ['max', 'append']
 draft: false
