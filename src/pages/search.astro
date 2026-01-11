@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Search from '../components/Search.astro';
+---
+
+<Layout
+  title="検索 - Daily Scraps"
+  description="ブログ記事を検索します"
+>
+  <main>
+    <section>
+      <h1>🔍 記事を検索</h1>
+      <p>キーワードを入力して記事を検索できます</p>
+      <Search />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: calc(100% - 2em);
+    max-width: 100%;
+    margin: 0;
+  }
+
+  section {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--accent)) 0%,
+      rgb(var(--accent-dark)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    color: rgb(var(--gray));
+    margin-bottom: 2rem;
+  }
+</style>
