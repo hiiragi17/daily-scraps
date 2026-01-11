@@ -85,9 +85,14 @@
 </style>
 
 <script is:inline>
-  window.addEventListener('DOMContentLoaded', async () => {
+  async function initPagefind() {
     const searchContainer = document.getElementById('search');
-    if (searchContainer) {
+    if (!searchContainer) {
+      console.error('Search container not found');
+      return;
+    }
+
+    try {
       // Dynamically import PagefindUI
       const { PagefindUI } = await import('/daily-scraps/pagefind/pagefind-ui.js');
 
@@ -109,8 +114,18 @@
           searching: '検索中...',
         },
       });
+    } catch (error) {
+      console.error('Failed to load Pagefind:', error);
+      searchContainer.innerHTML = '<p style="color: red;">検索機能の読み込みに失敗しました。ビルド後のサイトでお試しください。</p>';
     }
-  });
+  }
+
+  // Execute when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPagefind);
+  } else {
+    initPagefind();
+  }
 </script>
 
 <link href="/daily-scraps/pagefind/pagefind-ui.css" rel="stylesheet" />
