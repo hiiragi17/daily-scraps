@@ -4,7 +4,7 @@ description: 'Cookie、LocalStorage、SessionStorageに関して'
 pubDate: 2026-1-11
 tags: ['Cookie', 'LocalStorage', 'SessionStorage']
 draft: false
-slug: 'cookie_storage_learning'
+customSlug: 'cookie_storage_learning'
 ---
 
 ## 概要
