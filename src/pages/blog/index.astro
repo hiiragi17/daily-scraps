@@ -1,170 +1,19 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog'))
-  .sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
-    const dateA = new Date(a.data.pubDate);
-    const dateB = new Date(b.data.pubDate);
-    return dateB.getTime() - dateA.getTime();
-  });
-
-function formatDate(date: Date | string) {
-  try {
-    const d = new Date(date);
-    if (isNaN(d.getTime())) {
-      return '日付なし';
-    }
-    return d.toLocaleDateString('ja-JP', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  } catch {
-    return '日付なし';
-  }
-}
+// Redirect to the first page
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title="Blog" description="All blog posts" />
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0;url=/daily-scraps/blog/1/" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting...</title>
   </head>
   <body>
-    <Header />
-    <main>
-      <section>
-        <h1>Blog</h1>
-        <p>すべての記事（{posts.length}件）</p>
-        
-        <ul class="blog-list">
-          {posts.map((post: { id: string; data: { customSlug?: string; heroImage: string | null | undefined; title: unknown; pubDate: string | Date; description: unknown; tags: string[]; }; }) => {
-            const postSlug = post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '');
-
-            return (
-              <li>
-                <a href={`/daily-scraps/blog/${postSlug}/`}>
-                  <article>
-                    {post.data.heroImage && (
-                      <img 
-                        width={720} 
-                        height={360} 
-                        src={post.data.heroImage} 
-                        alt={String(post.data.title)}
-                        class="hero-image"
-                      />
-                    )}
-                    <div class="content">
-                      <h2>{post.data.title}</h2>
-                      <time class="date">{formatDate(post.data.pubDate)}</time>
-                      <p class="description">{post.data.description}</p>
-                      {post.data.tags && post.data.tags.length > 0 && (
-                        <div class="tags">
-                          {post.data.tags.map((tag: string) => (
-                            <span class="tag">#{tag}</span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </article>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    </main>
-    <Footer />
+    <p>Redirecting to page 1...</p>
+    <script>
+      window.location.href = '/daily-scraps/blog/1/';
+    </script>
   </body>
 </html>
-
-<style>
-  main {
-    padding: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    margin-bottom: 0.5rem;
-  }
-
-  section > p {
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .blog-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 2rem;
-  }
-
-  .blog-list li {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .blog-list li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  }
-
-  .blog-list a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .content {
-    padding: 1.5rem;
-  }
-
-  .blog-list h2 {
-    margin: 0 0 0.5rem 0;
-    color: #333;
-    font-size: 1.5rem;
-  }
-
-  .date {
-    display: block;
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .description {
-    color: #555;
-    line-height: 1.6;
-    margin: 0.5rem 0;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: #f0f0f0;
-    border-radius: 1rem;
-    font-size: 0.875rem;
-    color: #666;
-  }
-</style>
