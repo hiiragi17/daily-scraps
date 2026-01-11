@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるアルゴリズム'
 pubDate: 2025-10-13
 tags: ['アルゴリズム', '基本情報']
 draft: false
-slug: 'algorithm_learning2'
+customSlug: 'algorithm_learning2'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: 'ストアドプロシージャに関して'
 pubDate: 2025-09-8
 tags: ['ストアドプロシージャ', 'SQLアンチパターン']
 draft: false
-slug: 'stored_procedure_learning'
+customSlug: 'stored_procedure_learning'
 ---
 
 ## 概要

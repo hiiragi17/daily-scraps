@@ -4,7 +4,7 @@ description: 'Row Level Security(RLS)設定に関して'
 pubDate: 2025-08-31
 tags: ['Row Level Security', 'RLSポリシー']
 draft: false
-slug: 'rls-learning'
+customSlug: 'rls-learning'
 ---
 
 ## 概要

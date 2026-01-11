@@ -5,7 +5,7 @@ description: 'ordとchrメソッドに関して'
 pubDate: 2026-1-7
 tags: ['ord', 'chr']
 draft: false
-slug: 'ord_chr_learning'
+customSlug: 'ord_chr_learning'
 ---
 
 ## 概要

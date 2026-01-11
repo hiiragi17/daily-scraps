@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくる基礎理論'
 pubDate: 2025-10-11
 tags: ['基礎理論', '基本情報']
 draft: false
-slug: 'basic_theory_learning2'
+customSlug: 'basic_theory_learning2'
 ---
 
 ## 概要

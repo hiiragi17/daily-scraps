@@ -5,7 +5,7 @@ description: 'デッドレタートピックに関して'
 pubDate: 2025-10-30
 tags: ['デッドレタートピック']
 draft: false
-slug: 'dead_letter_topic_learning'
+customSlug: 'dead_letter_topic_learning'
 ---
 
 ## 概要

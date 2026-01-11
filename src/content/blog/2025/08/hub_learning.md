@@ -4,7 +4,7 @@ description: 'ネットワークはなぜつながるのか3章'
 pubDate: 2025-08-29
 tags: ['ネットワークはなぜつながるのか', 'リピータ・ハブ', 'スイッチング・ハブ']
 draft: false
-slug: 'hub_learning'
+customSlug: 'hub_learning'
 ---
 
 ## 概要

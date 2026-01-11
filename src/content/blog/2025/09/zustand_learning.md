@@ -4,7 +4,7 @@ description: 'Zustandに関して'
 pubDate: 2025-09-06
 tags: ['Zustand', 'persist']
 draft: false
-slug: 'zustand_learning'
+customSlug: 'zustand_learning'
 ---
 
 ## 概要

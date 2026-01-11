@@ -4,7 +4,7 @@ description: 'Recoilに関して'
 pubDate: 2025-11-25
 tags: ['Recoil']
 draft: false
-slug: 'recoil_learning'
+customSlug: 'recoil_learning'
 ---
 
 ## 概要

@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくるネットワーク'
 pubDate: 2025-10-07
 tags: ['ネットワーク', '基本情報']
 draft: false
-slug: 'network_learning2'
+customSlug: 'network_learning2'
 ---
 
 ## 概要

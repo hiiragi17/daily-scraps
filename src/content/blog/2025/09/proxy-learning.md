@@ -4,7 +4,7 @@ description: 'ネットワークはなぜつながるのか5章'
 pubDate: 2025-09-01
 tags: ['ネットワークはなぜつながるのか', 'フォワード・プロキシ', 'プロキシ・サーバー', 'リバース・プロキシ']
 draft: false
-slug: 'proxy-learning'
+customSlug: 'proxy-learning'
 ---
 
 ## 概要

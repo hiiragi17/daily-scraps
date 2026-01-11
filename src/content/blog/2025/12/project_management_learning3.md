@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるプロジェクトマネジメ
 pubDate: 2025-12-27
 tags: ['プロジェクトマネジメント', '基本情報']
 draft: false
-slug: 'project_management_learning3'
+customSlug: 'project_management_learning3'
 ---
 
 ## 概要

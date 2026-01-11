@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくる技術戦略マネジメント
 pubDate: 2025-12-8
 tags: ['技術戦略マネジメント', '基本情報']
 draft: false
-slug: 'technology_strategy_learning2'
+customSlug: 'technology_strategy_learning2'
 ---
 
 ## 概要

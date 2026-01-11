@@ -4,7 +4,7 @@ description: 'アーキテクチャ・カタに関して'
 pubDate: 2025-09-12
 tags: ['アーキテクチャ・カタ', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'kata_learning'
+customSlug: 'kata_learning'
 ---
 
 ## 概要

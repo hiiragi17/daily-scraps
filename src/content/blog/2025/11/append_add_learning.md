@@ -4,7 +4,7 @@ description: 'append と add の違い'
 pubDate: 2025-11-13
 tags: ['append','add']
 draft: false
-slug: 'append_add_learning'
+customSlug: 'append_add_learning'
 ---
 
 ## 概要

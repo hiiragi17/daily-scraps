@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるシステム開発技術'
 pubDate: 2025-11-30
 tags: ['システム開発技術', '基本情報']
 draft: false
-slug: 'system_development4'
+customSlug: 'system_development4'
 ---
 
 ## 概要

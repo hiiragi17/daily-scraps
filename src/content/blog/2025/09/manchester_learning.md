@@ -4,7 +4,7 @@ description: 'マンチェスター符号に関して'
 pubDate: 2025-09-05
 tags: ['マンチェスター符号', '基本情報']
 draft: false
-slug: 'manchester_learning'
+customSlug: 'manchester_learning'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: 'ネットワークはなぜつながるのか2章'
 pubDate: 2025-08-28
 tags: ['ネットワークはなぜつながるのか', 'Socket', 'シーケンス番号', 'ACK番号']
 draft: false
-slug: 'socket-learning'
+customSlug: 'socket-learning'
 ---
 
 ## 概要

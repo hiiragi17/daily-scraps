@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくる法務'
 pubDate: 2025-11-07
 tags: ['法務', '基本情報']
 draft: false
-slug: 'legal-affairs_learning2'
+customSlug: 'legal-affairs_learning2'
 ---
 
 ## 概要

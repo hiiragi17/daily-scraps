@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくる企業活動'
 pubDate: 2025-12-25
 tags: ['企業活動', '基本情報']
 draft: false
-slug: 'corporate_activities_learning5'
+customSlug: 'corporate_activities_learning5'
 ---
 
 ## 概要

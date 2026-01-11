@@ -4,7 +4,7 @@ description: 'アーキテクトのパーソナリティに関して'
 pubDate: 2025-09-18
 tags: ['アーキテクト', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'architect_learning'
+customSlug: 'architect_learning'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: '記事の概要・要約を入力'
 pubDate: 2026-01-08
 tags: ['タグ1', 'タグ2']
 draft: false
-slug: 'topic_name_learning'
+customSlug: 'topic_name_learning'
 ---
 
 ## 概要
@@ -61,8 +61,8 @@ console.log(message);
    - `description`: 記事の概要
    - `pubDate`: 公開日（YYYY-MM-DD形式）
    - `tags`: タグの配列
-   - `slug`: URLになるスラッグ（ファイル名と同じにすると管理しやすい）
+   - `customSlug`: URLになるスラッグ（ファイル名と同じにすると管理しやすい）
 5. 内容を編集
 6. コミット
 
-**注意**: slugフィールドでURLが決まります（例: slug: 'topic_learning' → /blog/topic_learning）
+**注意**: customSlugフィールドでURLが決まります（例: customSlug: 'topic_learning' → /blog/topic_learning）

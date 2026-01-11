@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくるシステム戦略'
 pubDate: 2025-10-23
 tags: ['システム戦略', '基本情報']
 draft: false
-slug: 'system_strategy_learning2'
+customSlug: 'system_strategy_learning2'
 ---
 
 ## 概要

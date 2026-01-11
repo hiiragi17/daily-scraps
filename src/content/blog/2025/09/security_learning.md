@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるセキュリティ'
 pubDate: 2025-09-29
 tags: ['セキュリティ', '基本情報']
 draft: false
-slug: 'security_learning'
+customSlug: 'security_learning'
 ---
 
 ## 概要

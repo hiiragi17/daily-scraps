@@ -4,7 +4,7 @@ description: 'React Native WebViewのsaveFormDataDisabled設定について理�
 pubDate: 2025-12-22
 tags: ['React Native', 'WebView', 'Android', 'フォームデータ', 'パスワード管理']
 draft: false
-slug: 'saveformdata_learning'
+customSlug: 'saveformdata_learning'
 ---
 
 ## 概要

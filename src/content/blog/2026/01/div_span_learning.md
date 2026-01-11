@@ -5,7 +5,7 @@ description: 'div、spanタグに関して'
 pubDate: 2026-1-8
 tags: ['div', 'span']
 draft: false
-slug: 'div_span_learning'
+customSlug: 'div_span_learning'
 ---
 
 ## 概要

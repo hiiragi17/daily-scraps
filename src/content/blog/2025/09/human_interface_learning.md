@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるヒューマンインターフ
 pubDate: 2025-09-27
 tags: ['ヒューマンインターフェース', '基本情報']
 draft: false
-slug: 'human_interface_learning'
+customSlug: 'human_interface_learning'
 ---
 
 ## 概要

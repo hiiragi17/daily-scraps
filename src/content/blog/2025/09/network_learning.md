@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるネットワーク関連'
 pubDate: 2025-09-22
 tags: ['ネットワーク', '基本情報']
 draft: false
-slug: 'network_learning'
+customSlug: 'network_learning'
 ---
 
 ## 概要

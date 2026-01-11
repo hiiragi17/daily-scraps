@@ -4,7 +4,7 @@ description: '再帰SQLに関して'
 pubDate: 2025-09-02
 tags: ['SQLアンチパターン', '再帰SQL']
 draft: false
-slug: 'recursive-learning'
+customSlug: 'recursive-learning'
 ---
 
 ## 概要

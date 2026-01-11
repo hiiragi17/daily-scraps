@@ -4,7 +4,7 @@ description: 'Tidy First?について'
 pubDate: 2025-09-20
 tags: ['Tidy First?']
 draft: false
-slug: 'tidy_first_learning'
+customSlug: 'tidy_first_learning'
 ---
 
 ## 概要

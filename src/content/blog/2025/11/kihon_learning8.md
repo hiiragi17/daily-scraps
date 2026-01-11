@@ -4,7 +4,7 @@ description: '基本情報の問題'
 pubDate: 2025-11-26
 tags: ['基本情報']
 draft: false
-slug: 'kihon_learning8'
+customSlug: 'kihon_learning8'
 ---
 
 ## 概要

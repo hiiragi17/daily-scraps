@@ -4,7 +4,7 @@ description: 'コナーセンスに関して'
 pubDate: 2025-09-10
 tags: ['コナーセンス', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'connascence_learning'
+customSlug: 'connascence_learning'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: 'SupabaseでのGoogle認証エラーに関して'
 pubDate: 2025-09-04
 tags: ['Supabase', 'Google認証']
 draft: false
-slug: 'supabase_google-learning'
+customSlug: 'supabase_google-learning'
 ---
 
 ## 概要
