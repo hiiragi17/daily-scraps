@@ -5,7 +5,7 @@ description: 'ProvisioningProfileに関して'
 pubDate: 2025-10-31
 tags: ['ProvisioningProfile']
 draft: false
-slug: 'provision_profile_learning'
+customSlug: 'provision_profile_learning'
 ---
 
 ## 概要

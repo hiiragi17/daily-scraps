@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるデータベース'
 pubDate: 2025-10-18
 tags: ['データベース', '基本情報']
 draft: false
-slug: 'database_learning2'
+customSlug: 'database_learning2'
 ---
 
 ## 概要

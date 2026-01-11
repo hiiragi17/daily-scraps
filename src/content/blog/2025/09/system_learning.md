@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるシステム構成要素関連
 pubDate: 2025-09-23
 tags: ['システム構成要素', '基本情報']
 draft: false
-slug: 'system_learning'
+customSlug: 'system_learning'
 ---
 
 ## 概要

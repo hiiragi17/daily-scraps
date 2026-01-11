@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるビジネスインダストリ
 pubDate: 2025-11-10
 tags: ['ビジネスインダストリ', '基本情報']
 draft: false
-slug: 'business_industry_learning2'
+customSlug: 'business_industry_learning2'
 ---
 
 ## 概要

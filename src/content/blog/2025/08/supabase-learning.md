@@ -4,7 +4,7 @@ description: 'Supabaseの環境構築に関して'
 pubDate: 2025-08-30
 tags: ['Supabase']
 draft: false
-slug: 'supabase-learning'
+customSlug: 'supabase-learning'
 ---
 
 ## 概要

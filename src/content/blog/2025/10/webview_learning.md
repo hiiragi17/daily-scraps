@@ -5,7 +5,7 @@ description: 'Webviewに関して'
 pubDate: 2025-10-24
 tags: ['Webview']
 draft: false
-slug: 'webview_learning'
+customSlug: 'webview_learning'
 ---
 
 ## 概要

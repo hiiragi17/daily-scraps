@@ -4,7 +4,7 @@ description: '情報セキュリティの3要素に関して'
 pubDate: 2026-1-10
 tags: ['情報セキュリティの3要素']
 draft: false
-slug: 'cia_learning'
+customSlug: 'cia_learning'
 ---
 
 ## 概要

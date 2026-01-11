@@ -4,7 +4,7 @@ description: '基本情報で出てくる問題'
 pubDate: 2025-11-01
 tags: ['基本情報']
 draft: false
-slug: 'kihonzyouhou_learning'
+customSlug: 'kihonzyouhou_learning'
 ---
 
 ## 概要

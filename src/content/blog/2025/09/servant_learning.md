@@ -4,7 +4,7 @@ description: 'サーバントリーダーシップに関して'
 pubDate: 2025-09-13
 tags: ['サーバントリーダーシップ']
 draft: false
-slug: 'servant_learning'
+customSlug: 'servant_learning'
 ---
 
 ## 概要

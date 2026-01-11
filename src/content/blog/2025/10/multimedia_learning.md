@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくるマルチメディア'
 pubDate: 2025-10-04
 tags: ['マルチメディア', '基本情報']
 draft: false
-slug: 'multimedia_learning'
+customSlug: 'multimedia_learning'
 ---
 
 ## 概要

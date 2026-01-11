@@ -4,7 +4,7 @@ description: 'アーキテクチャ特性に関して'
 pubDate: 2025-09-11
 tags: ['アーキテクチャ特性', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'architecture_characteristics'
+customSlug: 'architecture_characteristics'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: 'Zodに関して'
 pubDate: 2025-08-24
 tags: ['Zod', 'TypeScript']
 draft: false
-slug: 'zod_learning'
+customSlug: 'zod_learning'
 ---
 
 ## 概要

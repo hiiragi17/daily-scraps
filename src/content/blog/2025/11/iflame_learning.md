@@ -4,7 +4,7 @@ description: 'iframe(インラインフレーム)要素に関して'
 pubDate: 2025-11-12
 tags: ['iframe']
 draft: false
-slug: 'iflame_learning'
+customSlug: 'iflame_learning'
 ---
 
 ## 概要

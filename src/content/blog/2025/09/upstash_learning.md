@@ -4,7 +4,7 @@ description: 'Upstashに関して'
 pubDate: 2025-09-14
 tags: ['Upstash']
 draft: false
-slug: 'upstash_learning'
+customSlug: 'upstash_learning'
 ---
 
 ## 概要

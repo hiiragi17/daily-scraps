@@ -4,7 +4,7 @@ description: 'Web API:the Good Parts 第二章をまとめた。'
 pubDate: 2025-09-21
 tags: ['Web API:the Good Parts']
 draft: false
-slug: 'web_api2'
+customSlug: 'web_api2'
 ---
 
 ## 概要

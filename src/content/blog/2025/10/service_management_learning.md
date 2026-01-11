@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるサービスマネジメント
 pubDate: 2025-10-22
 tags: ['サービスマネジメント', '基本情報']
 draft: false
-slug: 'service_management_learning'
+customSlug: 'service_management_learning'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: '挿入ソートに関して'
 pubDate: 2025-09-03
 tags: ['挿入ソート']
 draft: false
-slug: 'insert_sort-learning'
+customSlug: 'insert_sort-learning'
 ---
 
 ## 概要

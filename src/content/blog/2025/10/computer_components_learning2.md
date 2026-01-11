@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるコンピュータ構成要素
 pubDate: 2025-10-12
 tags: ['コンピュータ構成要素', '基本情報']
 draft: false
-slug: 'computer_components_learning2'
+customSlug: 'computer_components_learning2'
 ---
 
 ## 概要

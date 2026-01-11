@@ -4,7 +4,7 @@ description: 'Astroに関して'
 pubDate: 2025-08-23
 tags: ['Astro']
 draft: false
-slug: 'astro-learning'
+customSlug: 'astro-learning'
 ---
 
 ## 概要

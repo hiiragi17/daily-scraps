@@ -4,7 +4,7 @@ description: '凝集度に関して'
 pubDate: 2025-09-09
 tags: ['凝集度', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'cohesion_learning'
+customSlug: 'cohesion_learning'
 ---
 
 ## 概要

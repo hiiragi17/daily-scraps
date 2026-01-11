@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるハードウェア'
 pubDate: 2025-11-06
 tags: ['ハードウェア', '基本情報']
 draft: false
-slug: 'hardware_learning3'
+customSlug: 'hardware_learning3'
 ---
 
 ## 概要

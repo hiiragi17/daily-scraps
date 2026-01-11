@@ -4,7 +4,7 @@ description: 'ソフトウェアアーキテクチャの基礎 第1章'
 pubDate: 2025-09-19
 tags: ['ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'software_architecture_learning'
+customSlug: 'software_architecture_learning'
 ---
 
 ## 概要

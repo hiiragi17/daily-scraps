@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるソフトウェア'
 pubDate: 2025-09-25
 tags: ['ソフトウェア', '基本情報']
 draft: false
-slug: 'software_learning'
+customSlug: 'software_learning'
 ---
 
 ## 概要

@@ -4,7 +4,7 @@ description: 'Kubernetesに関して'
 pubDate: 2025-09-07
 tags: ['Kubernetes', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'kubernetes_learning'
+customSlug: 'kubernetes_learning'
 ---
 
 ## 概要

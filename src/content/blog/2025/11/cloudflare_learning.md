@@ -4,7 +4,7 @@ description: 'Cloudflareと障害に関して'
 pubDate: 2025-11-19
 tags: ['Cloudflare']
 draft: false
-slug: 'cloudflare_learning'
+customSlug: 'cloudflare_learning'
 ---
 
 ## 概要

@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくる経営戦略マネジメント
 pubDate: 2025-10-28
 tags: ['経営戦略マネジメント', '基本情報']
 draft: false
-slug: 'business_strategy_learning2'
+customSlug: 'business_strategy_learning2'
 ---
 
 ## 概要

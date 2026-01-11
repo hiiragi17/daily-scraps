@@ -4,7 +4,7 @@ description: '基本情報の問題で出てくるシステム監査'
 pubDate: 2025-11-28
 tags: ['システム監査', '基本情報']
 draft: false
-slug: 'system_audit_learning2'
+customSlug: 'system_audit_learning2'
 ---
 
 ## 概要

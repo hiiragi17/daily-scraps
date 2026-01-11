@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくるソフトウェア開発管理
 pubDate: 2025-10-05
 tags: ['ソフトウェア開発管理技術', '基本情報']
 draft: false
-slug: 'software-development_learning'
+customSlug: 'software-development_learning'
 ---
 
 ## 概要

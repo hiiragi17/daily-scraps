@@ -5,7 +5,7 @@ description: '基本情報の問題で出てくるシステム企画'
 pubDate: 2025-10-29
 tags: ['システム企画', '基本情報']
 draft: false
-slug: 'system_planning_learning2'
+customSlug: 'system_planning_learning2'
 ---
 
 ## 概要

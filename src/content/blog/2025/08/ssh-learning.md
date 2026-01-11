@@ -3,7 +3,7 @@ title: '今日学んだこと：SSHに関して'
 description: 'SSHポートフォワーディング（トンネリング）に関して'
 pubDate: 2025-08-22
 tags: ['SSH']
-slug: 'ssh-learning'
+customSlug: 'ssh-learning'
 ---
 ## 見出し
 

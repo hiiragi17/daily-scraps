@@ -4,7 +4,7 @@ description: 'max、appendメソッドに関して'
 pubDate: 2026-1-9
 tags: ['max', 'append']
 draft: false
-slug: 'max_append_learning'
+customSlug: 'max_append_learning'
 ---
 
 ## 概要

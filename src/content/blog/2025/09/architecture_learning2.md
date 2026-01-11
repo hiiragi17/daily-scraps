@@ -4,7 +4,7 @@ description: 'アーキテクチャに関して'
 pubDate: 2025-09-17
 tags: ['アーキテクチャ', 'ソフトウェアアーキテクチャの基礎']
 draft: false
-slug: 'architecture_learning2'
+customSlug: 'architecture_learning2'
 ---
 
 ## 概要

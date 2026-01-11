@@ -4,7 +4,7 @@ description: 'Google認証システムの実装に関して'
 pubDate: 2025-09-15
 tags: ['Google認証', 'Supabase']
 draft: false
-slug: 'google_auth_learning'
+customSlug: 'google_auth_learning'
 ---
 
 ## 概要
