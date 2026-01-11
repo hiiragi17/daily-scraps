@@ -10,12 +10,13 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('blog');
 
 // Reactコンポーネントに渡すためのデータを整形
-const formattedPosts = posts.map((post: { id: any; data: { title: any; description: any; pubDate: any; }; }) => ({
+const formattedPosts = posts.map((post: { id: any; data: { title: any; description: any; pubDate: any; customSlug?: string; }; }) => ({
   id: post.id,
   data: {
     title: post.data.title,
     description: post.data.description || '',
     pubDate: post.data.pubDate,
+    customSlug: post.data.customSlug,
   }
 }));
 ---

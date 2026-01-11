@@ -25,7 +25,7 @@ const PostCalendarReact = ({ posts = [] }) => {
       
       postsByDate[dateStr].push({
         title: post.data?.title || 'タイトルなし',
-        slug: post.id?.replace(/\.(md|mdx)$/, '') || '',
+        slug: post.data?.customSlug || post.id?.replace(/\.(md|mdx)$/, '') || '',
         description: post.data?.description || ''
       });
     });
