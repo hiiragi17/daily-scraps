@@ -42,9 +42,9 @@ function formatDate(date: Date | string) {
         <p>すべての記事（{posts.length}件）</p>
         
         <ul class="blog-list">
-          {posts.map((post: { id: string; data: { heroImage: string | null | undefined; title: unknown; pubDate: string | Date; description: unknown; tags: string[]; }; }) => {
-            const postSlug = post.id.replace(/\.(md|mdx)$/, '');
-            
+          {posts.map((post: { id: string; data: { customSlug?: string; heroImage: string | null | undefined; title: unknown; pubDate: string | Date; description: unknown; tags: string[]; }; }) => {
+            const postSlug = post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '');
+
             return (
               <li>
                 <a href={`/daily-scraps/blog/${postSlug}/`}>

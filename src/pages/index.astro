@@ -72,8 +72,8 @@ const continuousStreak = calculateStreak(posts);
    <section class="recent-posts">
      <h2>最新の記事</h2>
      <ul class="post-list">
-       {recentPosts.map((post: { id: string; data: { title: unknown; pubDate: string | number | Date; description: unknown; tags: string[]; }; }) => {
-         const slug = post.id.replace(/\.(md|mdx)$/, '');
+       {recentPosts.map((post: { id: string; data: { customSlug?: string; title: unknown; pubDate: string | number | Date; description: unknown; tags: string[]; }; }) => {
+         const slug = post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '');
          return (
            <li class="post-item">
              <article>
