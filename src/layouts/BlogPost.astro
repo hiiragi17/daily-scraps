@@ -105,9 +105,9 @@ function formatDate(date: Date | string) {
  <body>
    <Header />
    <main>
-     <article>
+     <article data-pagefind-body>
        {thumbnail && (
-         <img 
+         <img
            class="hero-image"
            width={1020}
            height={360}
@@ -115,7 +115,7 @@ function formatDate(date: Date | string) {
            alt={title}
          />
        )}
-       <h1 class="title">{title}</h1>
+       <h1 class="title" data-pagefind-meta="title">{title}</h1>
        {pubDate && (
          <div class="date">{formatDate(pubDate)}</div>
        )}
