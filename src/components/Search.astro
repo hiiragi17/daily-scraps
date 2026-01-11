@@ -98,10 +98,22 @@ const baseUrl = import.meta.env.BASE_URL;
       const baseUrl = searchContainer.dataset.baseUrl || '';
       const pagefindPath = `${baseUrl}/pagefind/pagefind-ui.js`;
 
-      // Dynamically import PagefindUI
-      const { PagefindUI } = await import(pagefindPath);
+      // Load Pagefind script dynamically
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = pagefindPath;
+        script.type = 'text/javascript';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
 
-      new PagefindUI({
+      // Wait for PagefindUI to be available
+      if (!window.PagefindUI) {
+        throw new Error('PagefindUI not found on window object');
+      }
+
+      new window.PagefindUI({
         element: '#search',
         showSubResults: true,
         translations: {
