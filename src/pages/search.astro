@@ -48,4 +48,41 @@ import Search from '../components/Search.astro';
     color: rgb(var(--gray));
     margin-bottom: 2rem;
   }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    section {
+      margin: 1.5rem auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      width: calc(100% - 1.5em);
+    }
+
+    section {
+      margin: 1rem auto;
+      padding: 0 0.75rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
 </style>
