@@ -75,4 +75,61 @@ const tags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post
   }
 
   .back-link a {
-    color: r
+    color: rgb(var(--accent));
+    text-decoration: none;
+  }
+
+  .back-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-list {
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      padding: 0.75rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag-list {
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      margin-top: 1.5rem;
+    }
+
+    .back-link a {
+      font-size: 0.9rem;
+    }
+  }
+</style>
