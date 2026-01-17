@@ -90,9 +90,80 @@ const base = '/daily-scraps';
 		align-items: center;
 	}
 	
-	@media (max-width: 720px) {
+	/* レスポンシブ対応 */
+	@media (max-width: 768px) {
+		nav {
+			grid-template-columns: 1fr auto;
+			gap: 0.75rem;
+		}
+
 		.social-links {
 			display: none;
+		}
+
+		.internal-links {
+			gap: 0.75rem;
+		}
+
+		nav a {
+			padding: 0.75em 0.375em;
+			font-size: 0.95rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		header {
+			padding: 0 0.75em;
+		}
+
+		nav {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		h2 {
+			justify-self: center;
+		}
+
+		h2 a {
+			padding: 0.75em 0.5em;
+		}
+
+		.internal-links {
+			justify-self: stretch;
+			justify-content: space-between;
+			gap: 0.25rem;
+		}
+
+		nav a {
+			padding: 0.625em 0.25em;
+			font-size: 0.85rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		header {
+			padding: 0 0.5em;
+		}
+
+		h2 {
+			font-size: 1rem;
+		}
+
+		h2 a {
+			padding: 0.625em 0.375em;
+		}
+
+		.internal-links {
+			gap: 0.125rem;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		nav a {
+			padding: 0.5em 0.375em;
+			font-size: 0.8rem;
+			white-space: nowrap;
 		}
 	}
 </style>
