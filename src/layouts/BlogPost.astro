@@ -69,12 +69,123 @@ function formatDate(date: Date | string) {
      .prose {
        line-height: 1.8;
        color: #333;
+       word-wrap: break-word;
+       overflow-wrap: break-word;
      }
      .prose h2 {
        margin-top: 2rem;
        margin-bottom: 1rem;
      }
-     
+     .prose h3 {
+       margin-top: 1.5rem;
+       margin-bottom: 0.75rem;
+     }
+
+     /* prose内の画像 */
+     .prose img {
+       max-width: 100%;
+       height: auto;
+       border-radius: 8px;
+       margin: 1.5rem 0;
+     }
+
+     /* prose内のコードブロック */
+     .prose pre {
+       background: #1e1e1e;
+       color: #d4d4d4;
+       padding: 1rem;
+       border-radius: 8px;
+       overflow-x: auto;
+       margin: 1.5rem 0;
+       font-size: 0.9rem;
+       line-height: 1.5;
+     }
+     .prose code {
+       background: #f0f0f0;
+       padding: 0.2rem 0.4rem;
+       border-radius: 4px;
+       font-size: 0.875em;
+       word-break: break-word;
+     }
+     .prose pre code {
+       background: transparent;
+       padding: 0;
+       border-radius: 0;
+       font-size: inherit;
+       word-break: normal;
+     }
+
+     /* prose内のテーブル */
+     .prose table {
+       width: 100%;
+       border-collapse: collapse;
+       margin: 1.5rem 0;
+       font-size: 0.95rem;
+     }
+     .prose th,
+     .prose td {
+       border: 1px solid #e5e5e5;
+       padding: 0.75rem;
+       text-align: left;
+     }
+     .prose th {
+       background: #f5f5f5;
+       font-weight: 600;
+     }
+     .prose .table-wrapper {
+       overflow-x: auto;
+       margin: 1.5rem 0;
+     }
+
+     /* prose内の引用 */
+     .prose blockquote {
+       border-left: 4px solid rgb(var(--accent));
+       padding: 1rem 1.5rem;
+       margin: 1.5rem 0;
+       background: #f9f9f9;
+       border-radius: 0 8px 8px 0;
+       font-style: italic;
+       color: #555;
+     }
+     .prose blockquote p {
+       margin: 0;
+     }
+
+     /* prose内のリスト */
+     .prose ul,
+     .prose ol {
+       margin: 1rem 0;
+       padding-left: 1.5rem;
+     }
+     .prose li {
+       margin: 0.5rem 0;
+     }
+
+     /* prose内の埋め込みコンテンツ */
+     .prose iframe,
+     .prose video {
+       max-width: 100%;
+       border-radius: 8px;
+       margin: 1.5rem 0;
+     }
+
+     /* prose内のリンク */
+     .prose a {
+       color: rgb(var(--accent));
+       text-decoration: underline;
+       word-break: break-word;
+     }
+     .prose a:hover {
+       opacity: 0.8;
+     }
+
+     /* prose内の水平線 */
+     .prose hr {
+       border: none;
+       border-top: 1px solid #e5e5e5;
+       margin: 2rem 0;
+     }
+
      /* X共有ボタンのスタイル */
      .share-section {
        margin: 3rem 0;
@@ -129,9 +240,80 @@ function formatDate(date: Date | string) {
          font-size: 0.95rem;
        }
 
+       .prose pre {
+         padding: 0.875rem;
+         font-size: 0.85rem;
+       }
+
+       .prose blockquote {
+         padding: 0.875rem 1.25rem;
+         margin: 1.25rem 0;
+       }
+
+       .prose th,
+       .prose td {
+         padding: 0.625rem;
+         font-size: 0.9rem;
+       }
+
+       .prose img {
+         margin: 1.25rem 0;
+       }
+
        .share-section {
          margin: 2rem 0;
          padding: 1.5rem 0;
+       }
+     }
+
+     @media (max-width: 600px) {
+       .hero-image {
+         height: 200px;
+       }
+
+       .title {
+         font-size: 1.6rem;
+       }
+
+       .tags {
+         flex-wrap: wrap;
+       }
+
+       .prose {
+         font-size: 0.925rem;
+       }
+
+       .prose h2 {
+         font-size: 1.4rem;
+       }
+
+       .prose h3 {
+         font-size: 1.15rem;
+       }
+
+       .prose pre {
+         padding: 0.75rem;
+         font-size: 0.8rem;
+         border-radius: 6px;
+       }
+
+       .prose blockquote {
+         padding: 0.75rem 1rem;
+         font-size: 0.9rem;
+       }
+
+       .prose ul,
+       .prose ol {
+         padding-left: 1.25rem;
+       }
+
+       .prose table {
+         font-size: 0.875rem;
+       }
+
+       .prose th,
+       .prose td {
+         padding: 0.5rem;
        }
      }
 
@@ -141,23 +323,22 @@ function formatDate(date: Date | string) {
        }
 
        .hero-image {
-         height: 200px;
+         height: 180px;
          border-radius: 6px;
          margin-bottom: 1rem;
        }
 
        .title {
-         font-size: 1.5rem;
+         font-size: 1.4rem;
          margin: 0.75rem 0;
        }
 
        .date {
-         font-size: 0.9rem;
+         font-size: 0.875rem;
          margin-bottom: 0.75rem;
        }
 
        .tags {
-         flex-wrap: wrap;
          gap: 0.25rem;
          margin-bottom: 1rem;
        }
@@ -168,18 +349,66 @@ function formatDate(date: Date | string) {
        }
 
        .prose {
-         font-size: 0.9rem;
+         font-size: 0.875rem;
          line-height: 1.7;
        }
 
        .prose h2 {
-         font-size: 1.3rem;
+         font-size: 1.25rem;
          margin-top: 1.5rem;
          margin-bottom: 0.75rem;
        }
 
        .prose h3 {
-         font-size: 1.1rem;
+         font-size: 1.05rem;
+         margin-top: 1.25rem;
+       }
+
+       .prose pre {
+         padding: 0.625rem;
+         font-size: 0.75rem;
+         margin: 1rem 0;
+       }
+
+       .prose code {
+         font-size: 0.8em;
+         padding: 0.15rem 0.3rem;
+       }
+
+       .prose blockquote {
+         padding: 0.625rem 0.875rem;
+         margin: 1rem 0;
+         font-size: 0.85rem;
+         border-radius: 0 6px 6px 0;
+       }
+
+       .prose img {
+         border-radius: 6px;
+         margin: 1rem 0;
+       }
+
+       .prose ul,
+       .prose ol {
+         padding-left: 1rem;
+         margin: 0.75rem 0;
+       }
+
+       .prose li {
+         margin: 0.375rem 0;
+       }
+
+       .prose table {
+         font-size: 0.8rem;
+         margin: 1rem 0;
+       }
+
+       .prose th,
+       .prose td {
+         padding: 0.375rem 0.5rem;
+       }
+
+       .prose hr {
+         margin: 1.5rem 0;
        }
 
        .share-section {
@@ -191,7 +420,7 @@ function formatDate(date: Date | string) {
          width: 100%;
          justify-content: center;
          padding: 0.625rem 1rem;
-         font-size: 0.9rem;
+         font-size: 0.875rem;
        }
      }
    </style>
