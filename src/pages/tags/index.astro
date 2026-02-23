@@ -66,7 +66,7 @@ const tags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post
   }
 
   .tag:hover {
-    background: rgb(var(--accent));
+    background: var(--accent);
     color: white;
   }
 
@@ -75,7 +75,7 @@ const tags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post
   }
 
   .back-link a {
-    color: rgb(var(--accent));
+    color: var(--accent);
     text-decoration: none;
   }
 
