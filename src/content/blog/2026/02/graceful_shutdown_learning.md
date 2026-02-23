@@ -2,7 +2,7 @@
 title: '今日学んだこと：グレースフルシャットダウンに関して'
 description: 'グレースフルシャットダウンに関して'
 pubDate: 2026-2-23
-tags: ['graceful shutdown']
+tags: ['グレースフルシャットダウン']
 draft: false
 customSlug: 'graceful_shutdown_learning'
 ---
