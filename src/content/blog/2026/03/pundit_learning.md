@@ -2,7 +2,7 @@
 title: '今日学んだこと：Punditに関して'
 description: 'Ruby on RailsでよくつかわれるPunditについて'
 pubDate: 2026-03-02
-tags: ['Ruby', 'Rails', 'Pundit', '認可']
+tags: ['Pundit']
 draft: false
 customSlug: 'pundit_learning'
 ---
