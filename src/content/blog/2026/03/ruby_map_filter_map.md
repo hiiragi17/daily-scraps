@@ -2,7 +2,7 @@
 title: '今日学んだこと：map / map + compact / filter_map の違い'
 description: 'Rubyのmap、map + compact、filter_mapの使い分けとパフォーマンスの違い'
 pubDate: 2026-03-03
-tags: ['Ruby']
+tags: ['Ruby', 'map', 'map + compact', 'filter_map']
 draft: false
 customSlug: 'ruby_map_filter_map'
 ---
