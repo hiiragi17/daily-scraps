@@ -1,5 +1,5 @@
 ---
-title: 'AWS SES とは：アプリからのメール送信を安全・確実・安価に行うインフラ'
+title: '今日学んだこと：AWS SES とは：アプリからのメール送信を安全・確実・安価に行うインフラ'
 description: 'Amazon Simple Email Serviceの概要から、Railsでの導入方法、バウンス管理まで。自前メールサーバーの辛さとSESが解決してくれることをまとめた入門記事'
 pubDate: 2026-03-08
 tags: ['AWS', 'SES', 'Rails', 'メール', 'インフラ']
