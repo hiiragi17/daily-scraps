@@ -1,5 +1,5 @@
 ---
-title: 'データベースの種類を整理する：OLTP・OLAPとSnowflakeの全体像'
+title: '今日学んだこと：データベースの種類を整理する（OLTP・OLAPとSnowflake）'
 description: 'OLTP/OLAPの違いからSnowflakeのアーキテクチャ・仮想ウェアハウス・独自機能・データパイプラインの全体像までをまとめた記事'
 pubDate: 2026-03-07
 tags: ['データベース', 'Snowflake', 'OLTP', 'OLAP', 'データウェアハウス']
