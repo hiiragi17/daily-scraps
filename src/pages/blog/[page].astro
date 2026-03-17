@@ -91,18 +91,38 @@ function formatDate(date: Date | string) {
           )}
 
           <div class="page-numbers">
-            {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
-              num === page.currentPage ? (
-                <span class="page-number current">{num}</span>
-              ) : (
-                <a
-                  href={num === 1 ? '/daily-scraps/blog/' : `/daily-scraps/blog/${num}/`}
-                  class="page-number"
-                >
-                  {num}
-                </a>
-              )
-            ))}
+            {(() => {
+              const current = page.currentPage;
+              const last = page.lastPage;
+              const delta = 2;
+              const pages: (number | 'ellipsis')[] = [];
+
+              // 表示するページ番号の範囲を計算
+              const rangeStart = Math.max(2, current - delta);
+              const rangeEnd = Math.min(last - 1, current + delta);
+
+              pages.push(1);
+              if (rangeStart > 2) pages.push('ellipsis');
+              for (let i = rangeStart; i <= rangeEnd; i++) pages.push(i);
+              if (rangeEnd < last - 1) pages.push('ellipsis');
+              if (last > 1) pages.push(last);
+
+              return pages.map((num, idx) =>
+                num === 'ellipsis' ? (
+                  <span class="page-ellipsis" key={idx}>…</span>
+                ) : num === current ? (
+                  <span class="page-number current" key={num}>{num}</span>
+                ) : (
+                  <a
+                    href={num === 1 ? '/daily-scraps/blog/' : `/daily-scraps/blog/${num}/`}
+                    class="page-number"
+                    key={num}
+                  >
+                    {num}
+                  </a>
+                )
+              );
+            })()}
           </div>
 
           {page.url.next && (
@@ -265,6 +285,17 @@ function formatDate(date: Date | string) {
     background: rgb(var(--accent));
     color: white;
     border-color: rgb(var(--accent));
+  }
+
+  .page-ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    color: #999;
+    font-size: 1rem;
+    user-select: none;
   }
 
   /* レスポンシブ対応 */
