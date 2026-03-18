@@ -225,16 +225,24 @@ function formatDate(date: Date | string) {
 
   .pagination {
     margin-top: 3rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
+  }
+
+  .pagination-link.prev {
+    justify-self: start;
+  }
+
+  .pagination-link.next {
+    justify-self: end;
+    grid-column: 3;
   }
 
   .pagination-link {
     padding: 0.75rem 1.5rem;
-    background: rgb(var(--accent));
+    background: var(--accent);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -243,22 +251,16 @@ function formatDate(date: Date | string) {
   }
 
   .pagination-link:hover {
-    background: rgb(var(--accent-dark));
-  }
-
-  .pagination-link.prev {
-    margin-right: auto;
-  }
-
-  .pagination-link.next {
-    margin-left: auto;
+    background: var(--accent-dark);
   }
 
   .page-numbers {
+    grid-column: 2;
     display: flex;
     gap: 0.5rem;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .page-number {
@@ -282,9 +284,9 @@ function formatDate(date: Date | string) {
   }
 
   .page-number.current {
-    background: rgb(var(--accent));
+    background: var(--accent);
     color: white;
-    border-color: rgb(var(--accent));
+    border-color: var(--accent);
   }
 
   .page-ellipsis {
@@ -331,19 +333,25 @@ function formatDate(date: Date | string) {
 
   @media (max-width: 600px) {
     .pagination {
-      flex-direction: column;
-    }
-
-    .pagination-link.prev,
-    .pagination-link.next {
-      margin: 0;
-      width: 100%;
-      text-align: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
     }
 
     .page-numbers {
-      order: -1;
-      justify-content: center;
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    .pagination-link.prev {
+      grid-column: 1;
+      grid-row: 2;
+      justify-self: start;
+    }
+
+    .pagination-link.next {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: end;
     }
   }
 
