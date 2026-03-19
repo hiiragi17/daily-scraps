@@ -2,7 +2,7 @@
 title: '今日学んだこと：ぼっち演算子（&.）で nil エラーを防ぐ'
 description: 'Rubyのぼっち演算子（safe navigation operator）の基本的な使い方、nilエラーを防ぐ仕組み、実務でのよくある使いどころをまとめた'
 pubDate: 2026-03-19
-tags: ['Ruby', 'ぼっち演算子', 'nil', '初心者']
+tags: ['Ruby', 'ぼっち演算子', 'nil']
 draft: false
 customSlug: 'ruby_safe_navigation_operator'
 ---
