@@ -39,7 +39,7 @@ function calculateStreak(posts: any[]): number {
  const latestPost = parseLocalDate(sortedPosts[0].data.pubDate);
 
  const daysSinceLatest = Math.floor((today.getTime() - latestPost.getTime()) / (1000 * 60 * 60 * 24));
- if (daysSinceLatest > 0) return 0;
+ if (daysSinceLatest > 1) return 0;
 
  let currentDate = new Date(latestPost);
  streak = 1;
