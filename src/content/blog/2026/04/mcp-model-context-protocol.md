@@ -1,5 +1,5 @@
 ---
-title: 'MCP（Model Context Protocol）：AIと外部ツールをつなぐ共通規格'
+title: '今日学んだこと：MCPに関して'
 description: 'AnthropicがオープンソースとしてリリースしたMCPの仕組みを、N×M問題の解決・技術的構造・サーバー実装の観点から整理した。'
 pubDate: 2026-04-08
 tags: ['MCP', 'AI', 'Anthropic', 'JSON-RPC', 'Claude']
@@ -126,3 +126,15 @@ async def main():
 > **「N×M問題を解消した、AIとツールの共通プラグイン規格」** がMCPだ。
 
 MCPサーバーを一度作れば、Claude・ChatGPT・Geminiなど対応AIすべてから使える。JSON-RPC 2.0をベースにした設計はシンプルで、公式SDKを使えば数十行で独自サーバーを実装できる。AIエージェントが増えるほど、MCPの標準化メリットは大きくなる。
+
+---
+
+## 参考文献・リンク
+
+https://modelcontextprotocol.io/introduction
+
+https://github.com/modelcontextprotocol/python-sdk
+
+https://www.anthropic.com/news/model-context-protocol
+
+---
