@@ -4,6 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 export default defineConfig({
+  image: {
+    domains: ['img.youtube.com']
+  },
   site: 'https://hiiragi17.github.io',
   base: '/daily-scraps',
   integrations: [
