@@ -7,10 +7,6 @@ draft: false
 customSlug: 'nosql-document-database'
 ---
 
-引き継ぎサマリーにあった「KVS（DynamoDB）の使い分け」を理解する前提として、まずはNoSQL全体像とドキュメント指向データベースを整理する。
-
----
-
 ## なぜ学ぶ価値があるのか
 
 Rails開発ではMySQLやPostgreSQLなどのRDBを使うのが自然だが、実運用では「RDBだけでは設計しづらい」ケースが一定数ある。
