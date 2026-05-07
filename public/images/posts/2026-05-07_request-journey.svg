@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1180" viewBox="0 0 1200 1180" role="img" aria-labelledby="title desc">
+  <title id="title">リクエストの旅：ブラウザからDBまで</title>
+  <desc id="desc">ブラウザからALB、ECSタスク内のNginxとRails、RDSまでリクエストが流れる構成図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px sans-serif; fill: #0f172a; }
+      .label { font: 700 27px sans-serif; fill: #111827; }
+      .sub { font: 700 22px sans-serif; fill: #475569; }
+      .note { font: 700 20px sans-serif; fill: #7c4a03; }
+      .body { font: 700 23px sans-serif; fill: #1f2937; }
+      .small { font: 700 20px sans-serif; fill: #334155; }
+      .arrow { stroke: #555; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .line { stroke: #555; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="1180" />
+  <text class="title" x="600" y="58" text-anchor="middle">リクエストの旅：ブラウザからDBまで</text>
+
+  <rect x="410" y="110" width="380" height="105" rx="16" fill="#f4f1ea" stroke="#555" stroke-width="2" />
+  <text class="label" x="600" y="155" text-anchor="middle">ブラウザ</text>
+  <text class="sub" x="600" y="190" text-anchor="middle">ユーザーがアクセス</text>
+
+  <path class="arrow" d="M600 215 V285" />
+  <text class="note" x="825" y="260">HTTPS（443番ポート）</text>
+
+  <rect x="365" y="285" width="470" height="105" rx="16" fill="#e8f4ff" stroke="#0b74de" stroke-width="2" />
+  <text class="label" x="600" y="330" text-anchor="middle" fill="#07539b">ALB（L7）</text>
+  <text class="sub" x="600" y="365" text-anchor="middle" fill="#0b74de">ホスト / パスでルーティング</text>
+
+  <path class="arrow" d="M600 390 V455" />
+  <text class="note" x="825" y="435">ターゲットグループ経由</text>
+
+  <rect x="135" y="455" width="930" height="345" rx="18" fill="#efedff" stroke="#4f46e5" stroke-width="2" />
+  <text class="label" x="600" y="510" text-anchor="middle" fill="#3b2f91">ECSタスク（1コンテナの集まり）</text>
+
+  <rect x="205" y="560" width="390" height="105" rx="14" fill="#e4f6ef" stroke="#0f766e" stroke-width="1.5" />
+  <text class="label" x="400" y="605" text-anchor="middle" fill="#075e54">Nginx</text>
+  <text class="sub" x="400" y="640" text-anchor="middle" fill="#047857">リバースプロキシ</text>
+
+  <rect x="660" y="560" width="390" height="105" rx="14" fill="#fff1ed" stroke="#c2410c" stroke-width="1.5" />
+  <text class="label" x="855" y="605" text-anchor="middle" fill="#9a3412">Rails</text>
+  <text class="sub" x="855" y="640" text-anchor="middle" fill="#c2410c">アプリケーション本体</text>
+
+  <path class="line" d="M595 612 H655" />
+
+  <text class="sub" x="600" y="710" text-anchor="middle" fill="#4f46e5">同じターゲットグループ内で複数コンテナがスケール</text>
+  <text class="sub" x="600" y="750" text-anchor="middle" fill="#4f46e5">（コンテナ1、コンテナ2、コンテナ3...）</text>
+
+  <path class="arrow" d="M855 800 V880" />
+  <text class="note" x="910" y="846">ActiveRecord</text>
+  <text class="note" x="910" y="874">経由でSQL発行</text>
+
+  <rect x="610" y="880" width="390" height="105" rx="14" fill="#fff3df" stroke="#b45309" stroke-width="2" />
+  <text class="label" x="805" y="925" text-anchor="middle" fill="#92400e">RDS（MySQL）</text>
+  <text class="sub" x="805" y="960" text-anchor="middle" fill="#92400e">プライベートサブネット内</text>
+
+  <rect x="90" y="1035" width="1020" height="120" rx="18" fill="#f8f6ef" stroke="#555" stroke-width="2" />
+  <text class="label" x="600" y="1075" text-anchor="middle">各レイヤーの役割まとめ</text>
+  <text class="small" x="130" y="1112">ALB: 80/443で受けて、host/pathでターゲットグループに振り分け</text>
+  <text class="small" x="130" y="1142">Nginx: 静的ファイル配信、ヘッダー操作、Railsへ転送 / Rails: ビジネスロジックとDBアクセス</text>
+</svg>
