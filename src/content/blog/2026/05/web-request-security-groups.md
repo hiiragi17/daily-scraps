@@ -5,7 +5,7 @@ pubDate: 2026-05-07
 tags: ['AWS', 'ALB', 'ECS', 'RDS', 'セキュリティグループ']
 draft: false
 customSlug: 'web-request-security-groups'
-thumbnail: '/images/posts/2026-05-07_request-journey.svg'
+thumbnail: '/daily-scraps/images/posts/2026-05-07_request-journey.svg'
 ---
 
 AWS上でRailsアプリケーションを動かすとき、ブラウザからのリクエストは一気にデータベースへ届くわけではない。
@@ -18,7 +18,7 @@ AWS上でRailsアプリケーションを動かすとき、ブラウザからの
 
 まずは、ユーザーがブラウザでアクセスしてから、RailsがDBに問い合わせるまでの全体像を見てみる。
 
-![リクエストの旅：ブラウザからDBまで](/images/posts/2026-05-07_request-journey.svg)
+![リクエストの旅：ブラウザからDBまで](/daily-scraps/images/posts/2026-05-07_request-journey.svg)
 
 流れを文章にすると、次のようになる。
 
@@ -110,7 +110,7 @@ ECS Task 3
 
 リクエストの経路がわかっても、それぞれの場所で「その通信を受け入れてよいか」を許可していなければ、通信は通らない。
 
-![セキュリティグループのバケツリレー](/images/posts/2026-05-07_security-group-relay.svg)
+![セキュリティグループのバケツリレー](/daily-scraps/images/posts/2026-05-07_security-group-relay.svg)
 
 セキュリティグループは、リソース単位で設定する仮想ファイアウォールだ。
 
