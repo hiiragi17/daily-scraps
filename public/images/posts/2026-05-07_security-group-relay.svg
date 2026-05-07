@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1180" viewBox="0 0 1200 1180" role="img" aria-labelledby="title desc">
+  <title id="title">セキュリティグループのバケツリレー</title>
+  <desc id="desc">インターネット、ALB、ECS、RDSの各関所で、どのセキュリティグループからの通信を許可するかを示す図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px sans-serif; fill: #075985; }
+      .label { font: 700 27px sans-serif; fill: #111827; }
+      .sub { font: 700 22px sans-serif; fill: #1f2937; }
+      .blue { fill: #0b5cad; }
+      .purple { fill: #4f46e5; }
+      .brown { fill: #92400e; }
+      .note { font: 700 20px sans-serif; fill: #7c4a03; }
+      .small { font: 700 21px sans-serif; fill: #334155; }
+      .arrow { stroke: #555; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="1180" />
+  <text class="title" x="600" y="50" text-anchor="middle">セキュリティグループのバケツリレー</text>
+  <text class="subtitle" x="600" y="85" text-anchor="middle">「誰からの通信を許可するか」をリソース単位で書く</text>
+
+  <rect x="410" y="135" width="380" height="85" rx="16" fill="#f4f1ea" stroke="#555" stroke-width="2" />
+  <text class="label" x="600" y="188" text-anchor="middle">インターネット</text>
+
+  <path class="arrow" d="M600 220 V295" />
+  <text class="note" x="620" y="270">誰でも（0.0.0.0/0）</text>
+
+  <rect x="120" y="295" width="960" height="160" rx="18" fill="#e8f4ff" stroke="#0b74de" stroke-width="2" />
+  <text class="label blue" x="600" y="345" text-anchor="middle">関所1: ALB</text>
+  <text class="sub blue" x="600" y="382" text-anchor="middle">SG: alb-sg</text>
+  <text class="sub blue" x="600" y="418" text-anchor="middle">受け入れルール: 80番（HTTP）/ 443番（HTTPS）を全員から</text>
+
+  <path class="arrow" d="M600 455 V540" />
+  <text class="note" x="620" y="510">alb-sg からのみ許可</text>
+
+  <rect x="120" y="540" width="960" height="190" rx="18" fill="#efedff" stroke="#4f46e5" stroke-width="2" />
+  <text class="label purple" x="600" y="595" text-anchor="middle">関所2: ECS（ターゲットグループにぶら下がる）</text>
+  <text class="sub purple" x="600" y="632" text-anchor="middle">SG: ecs-sg</text>
+  <text class="sub purple" x="600" y="668" text-anchor="middle">受け入れルール: alb-sg を持っているリソースからのみ</text>
+  <text class="sub purple" x="600" y="704" text-anchor="middle">IPで指定しない理由: コンテナのIPは起動のたびに変わる</text>
+
+  <path class="arrow" d="M600 730 V815" />
+  <text class="note" x="620" y="785">ecs-sg からのみ許可</text>
+
+  <rect x="120" y="815" width="960" height="170" rx="18" fill="#fff3df" stroke="#b45309" stroke-width="2" />
+  <text class="label brown" x="600" y="868" text-anchor="middle">関所3: RDS（DB）</text>
+  <text class="sub brown" x="600" y="905" text-anchor="middle">SG: db-sg</text>
+  <text class="sub brown" x="600" y="942" text-anchor="middle">受け入れルール: ecs-sg を持っているリソースからの3306番のみ</text>
+  <text class="sub brown" x="600" y="975" text-anchor="middle">→ ALBや外部からは絶対に届かない</text>
+
+  <rect x="90" y="1045" width="1020" height="105" rx="18" fill="#f8f6ef" stroke="#555" stroke-width="2" />
+  <text class="label" x="600" y="1085" text-anchor="middle">SGの2大ルール</text>
+  <text class="small" x="130" y="1122">1. ホワイトリスト方式: 書いてないと通さない（最初は全部閉じる）</text>
+  <text class="small" x="130" y="1152">2. ステートフル: インバウンドで許可した通信の戻りは自動許可</text>
+</svg>
