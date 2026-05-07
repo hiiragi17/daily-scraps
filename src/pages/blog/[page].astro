@@ -48,18 +48,19 @@ function formatDate(date: Date | string) {
         <p>すべての記事（{page.total}件）{page.currentPage > 1 && ` - ページ ${page.currentPage}`}</p>
 
         <ul class="blog-list">
-          {page.data.map((post: { id: string; data: { customSlug?: string; heroImage: string | null | undefined; title: unknown; pubDate: string | Date; description: unknown; tags: string[]; }; }) => {
+          {page.data.map((post: { id: string; data: { customSlug?: string; thumbnail?: string | null; title: unknown; pubDate: string | Date; description: unknown; tags?: string[]; }; }) => {
             const postSlug = post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '');
+            const thumbnail = post.data.thumbnail;
 
             return (
               <li>
                 <a href={`/daily-scraps/blog/${postSlug}/`}>
                   <article>
-                    {post.data.heroImage && (
+                    {thumbnail && (
                       <img
                         width={720}
                         height={360}
-                        src={post.data.heroImage}
+                        src={thumbnail}
                         alt={String(post.data.title)}
                         class="hero-image"
                       />
