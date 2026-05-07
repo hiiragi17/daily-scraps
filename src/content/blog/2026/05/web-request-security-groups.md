@@ -12,8 +12,6 @@ AWS上でRailsアプリケーションを動かすとき、ブラウザからの
 
 実際には、ALB、ECSタスク、Nginx、Rails、RDSといった複数の登場人物がいて、それぞれが役割を分担しながらリクエストをバケツリレーしている。
 
-今回は `facilo-aws-study-guide-v3.md` の Phase 5 の予習として、**リクエストがどこを通るのか**と、**各リソースが誰からの通信を許可しているのか**を整理した。
-
 ---
 
 ## リクエストの旅：ブラウザからDBまで
@@ -229,3 +227,15 @@ Webリクエストは、ブラウザからALB、ECSタスク、Nginx、Rails、R
 この2つを分けて理解できると、AWS構成図を見たときに、リクエストの流れと通信許可の境界がかなり読みやすくなる。
 
 特に大事なのは、DBを外に見せないこと。ALB、ECS、RDSの各レイヤーで必要な通信だけを許可し、バケツリレーのように安全な経路を作るのが基本だ。
+
+---
+
+## 参考文献・リンク
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html
+
+https://docs.aws.amazon.com/AmazonECS/latest/userguide/task_definitions.html
+
+https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
