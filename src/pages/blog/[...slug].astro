@@ -6,7 +6,7 @@ import { marked } from 'marked';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
-  return posts.map((post: { id: string; body: any; data: any; }) => {
+  return posts.map((post) => {
     // customSlugフィールドがあればそれを使用、なければファイルパスから生成
     const slug = post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '');
 

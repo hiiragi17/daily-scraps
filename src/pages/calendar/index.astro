@@ -3,14 +3,13 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PostCalendarReact from '../../components/PostCalendarReact.jsx';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 // ブログ投稿を取得
 const posts = await getCollection('blog');
 
 // Reactコンポーネントに渡すためのデータを整形
-const formattedPosts = posts.map((post: { id: any; data: { title: any; description: any; pubDate: any; customSlug?: string; }; }) => ({
+const formattedPosts = posts.map((post) => ({
   id: post.id,
   data: {
     title: post.data.title,

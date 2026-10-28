@@ -2,27 +2,26 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   console.log('Found posts:', posts.length);
   
-  const uniqueTags = [...new Set(posts.flatMap((post: { data: { tags: any; }; }) => post.data.tags || []))];
+  const uniqueTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
   console.log('Found tags:', uniqueTags);
   
   const paths = uniqueTags.map(tag => ({
     params: { tag },
     props: {
       posts: posts
-        .filter((post: { data: { tags: unknown[]; }; }) => post.data.tags?.includes(tag))
-        .sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
+        .filter((post) => post.data.tags?.includes(tag))
+        .sort((a, b) => {
           const dateA = new Date(a.data.pubDate);
           const dateB = new Date(b.data.pubDate);
           return dateB.getTime() - dateA.getTime();
         })
-        .map((post: { id: string; data: any }) => ({
+        .map((post) => ({
           ...post,
           slug: post.data.customSlug || post.id.replace(/\.(md|mdx)$/, '')
         }))
@@ -68,7 +67,7 @@ function formatDate(date: string | number | Date) {
         <p>このタグの記事はまだありません。</p>
       ) : (
         <div class="posts-list">
-          {posts.map((post: { slug: any; data: { title: unknown; pubDate: any; description: unknown; tags: any[]; }; }) => (
+          {posts.map((post) => (
             <article class="post-item">
               <h2>
                 <a href={`/daily-scraps/blog/${post.slug}/`}>
