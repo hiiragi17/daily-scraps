@@ -2,19 +2,19 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths({ paginate }: any) {
+export const getStaticPaths = (async ({ paginate }) => {
   const posts = (await getCollection('blog'))
-    .sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
+    .sort((a, b) => {
       const dateA = new Date(a.data.pubDate);
       const dateB = new Date(b.data.pubDate);
       return dateB.getTime() - dateA.getTime();
     });
 
   return paginate(posts, { pageSize: 12 });
-}
+}) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 
@@ -108,16 +108,15 @@ function formatDate(date: Date | string) {
               if (rangeEnd < last - 1) pages.push('ellipsis');
               if (last > 1) pages.push(last);
 
-              return pages.map((num, idx) =>
+              return pages.map((num) =>
                 num === 'ellipsis' ? (
-                  <span class="page-ellipsis" key={idx}>…</span>
+                  <span class="page-ellipsis">…</span>
                 ) : num === current ? (
-                  <span class="page-number current" key={num}>{num}</span>
+                  <span class="page-number current">{num}</span>
                 ) : (
                   <a
                     href={num === 1 ? '/daily-scraps/blog/' : `/daily-scraps/blog/${num}/`}
                     class="page-number"
-                    key={num}
                   >
                     {num}
                   </a>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+/** @param {{ posts?: any[] }} props */
 const PostCalendarReact = ({ posts = [] }) => {
   const [date, setDate] = useState(new Date());
   const [selectedPosts, setSelectedPosts] = useState(null);
