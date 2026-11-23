@@ -17,6 +17,12 @@ updates:
     open-pull-requests-limit: 5
     cooldown:
       default-days: 3
+    ignore:
+      # @astrojs/check(peer: typescript ^5 || ^6)と typescript-eslint(peer: <6.1.0)が
+      # TypeScript 7 に未対応で、7 系に上げると npm ci が ERESOLVE で落ちる(#89)。
+      # 両者が 7 系に対応したらこの ignore を外す
+      - dependency-name: "typescript"
+        versions: [">=7"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
